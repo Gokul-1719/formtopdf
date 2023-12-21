@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Resume</title>
+    <script src="./preview.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+
+</head>
+
+<body id="resumContainer">
+  <h1>Resume</h1>
+  <label for="">firstName:<span id="previewFirstName"></span></label></br>
+
+  <label for="">lastName:<span id="previewlastName"></span></label></br>
+
+  <label for="">Date of birth :<span id="previewdateOfBirth"></span></label></br>
+
+  <label for="">Age :<span id="previewAge"></span></label></br>
+  <label for="">maritalStatus :<span id="maritalStatus"></span></label></br>
+  <label for="">Gender :<span id="gender"></span></label></br>
+  <label for="">Work Status :<span id="workStatus"></span></label></br>  
+  <label for="">Present Location :<span id="previewPresentLocation"></span></label></br>
+
+  <label for="">Permanent Location :<span id="previewPermanentLocation"></span></label></br>
+
+  <label for="">Phone Number :<span id="previewPhoneNumber"></span></label></br>
+
+  <label for="">Email :<span id="previewemail"></span></label></br>
+
+  <label for="">Summary Skills :<span id="previewsummerySkills"></span></label></br>
+
+  <label for="">Current Designation :<span id="previewcurrentDesignation"></span></label></br>
+
+  <label for="">Expected Designation :<span id="previewexpectedDesignation"></span></label></br>
+
+  <label for="">Current Gross salary :<span id="previewcurrentGrossSalary"></span></label></br>
+
+  <label for="">Current CTC :<span id="previewCurrentctc"></span></label></br>
+
+  <label for="">Current Expected Gross Salary :<span id="previewcurrentexpectedgrosssalary"></span></label></br>
+
+  <label for="">Expected CTC :<span id="previewexpectedctc"></span></label></br>
+  
+  <label for="">For Interview :<span id="previewforinterview"></span></label></br>
+
+  <label for="">Notice Period :<span id="previewnoticeperiod"></span></label></br>
+  
+  
+  <script>
+    function generatePDF() {
+        var elementHTML = document.querySelector("#resumContainer");
+        var label = "resume";
+
+        html2pdf(elementHTML, {
+            filename: label,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        });
+    }
+</script>
+</body>
+
+</html>

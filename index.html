@@ -1,0 +1,396 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./index.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="resume-form container" id="resumeFormContainer">
+
+        <div class="row">
+            <div class="col-sm-10 p-4 border mx-auto">
+                <h2 class="text-center">Resume Form</h2>
+                <form id="resumeForm" onsubmit="submit()">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="firstName">First Name:</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John"
+                                required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="lastName">Last Name :</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Doe"
+                                required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="dateOfBirth">Date Of Birth:</label>
+                            <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                                placeholder="06/12/1998" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="age">Age :</label>
+                            <input type="number" class="form-control" id="age" name="age" placeholder="30" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="present location">Present Location:</label>
+                        <textarea id="presentlocation" class="form-control" name="presentlocation" rows="3"
+                            required></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="permanent location">Permanent Location:</label>
+                            <textarea id="permanentlocation" class="form-control" name="permanentlocation" rows="3"
+                                required></textarea>
+
+                            <label>Marital Status:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" id="single" name="maritalStatus" value="single">
+                                    Single</label>
+                                <label><input type="radio" id="married" name="maritalStatus" value="married">
+                                    Married</label> 
+                                <label><input type="radio" id="divorced" name="maritalStatus" value="divorced">
+                                    Divorced</label>
+                            </div>
+                            <label>Gender:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" id="male" value="Male"> Male</label>
+                                <label><input type="radio" name="gender" id="female" value="Female"> Female</label>
+                                <label><input type="radio" name="gender" id="other" value="Other"> Other</label>
+                            </div>
+
+                            <label for="workStatus">Work Status:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="workStatus" id="Employed" value="Employed">
+                                    Employed</label>
+                                <label><input type="radio" name="workStatus" id="Unemployed" value="Unemployed">
+                                    Unemployed</label>
+                                <label><input type="radio" name="workStatus" id="Student" value="Student">
+                                    Student</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="phoneNumber">Phone Number:</label>
+                            <input type="tel" id="phoneNumber" class="form-control" name="phoneNumber"
+                                placeholder="123-456-7890" required>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="email">Email:</label>
+                            <input type="email" id="email" class="form-control" name="email"
+                                placeholder="john.doe@example.com" required>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                    <label> Educational Qualification</label>
+
+                    <table    id="Qualification-table">
+                        <thead>
+                            <tr>
+                                <th>Year Of Passing</th>
+                                <th>Course Name</th>
+                                <th>Institution / University</th>
+                                <th>Mode of study</th>
+                                <th>% of Marks</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="col1[]" value=""></td>
+                                <td><input type="text" name="col2[]" value=""></td>
+                                <td><input type="text" name="col3[]" value=""></td>
+                                <td><input type="text" name="col4[]" value=""></td>
+                                <td><input type="text" name="col5[]" value=""></td>
+                                <td><button class="delete" onclick="deleteRow(this)">Delete</button></td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="col1[]" value=""></td>
+                                <td><input type="text" name="col2[]" value=""></td>
+                                <td><input type="text" name="col3[]" value=""></td>
+                                <td><input type="text" name="col4[]" value=""></td>
+                                <td><input type="text" name="col5[]" value=""></td>
+                                <td><button class="delete" onclick="deleteRow(this)">Delete</button></td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <button onclick="addRow()">Add Row</button></br>
+                    <label>Work Experience:</label>
+                    <table id="Work-data-table">
+                        <thead>
+                            <tr>
+                                <th>Work Tenure (DD/MM/YY) From/To</th>
+                                <th>Designation</th>
+                                <th>Name of the Company & Location</th>
+                                <th>Origin of the Company</th>
+                                <th>Total Years of Service</th>
+                                <th>Remarks</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="col1[]" value=""></td>
+                                <td><input type="text" name="col2[]" value=""></td>
+                                <td><input type="text" name="col3[]" value=""></td>
+                                <td><input type="text" name="col4[]" value=""></td>
+                                <td><input type="text" name="col5[]" value=""></td>
+                                <td><input type="text" name="col6[]" value=""></td>
+                                <td><button class="delete" onclick="deleteRow(this)">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="col1[]" value=""></td>
+                                <td><input type="text" name="col2[]" value=""></td>
+                                <td><input type="text" name="col3[]" value=""></td>
+                                <td><input type="text" name="col4[]" value=""></td>
+                                <td><input type="text" name="col5[]" value=""></td>
+                                <td><input type="text" name="col6[]" value=""></td>
+                                <td><button class="delete" onclick="deleteRow(this)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button onclick="addWorkRow()">Add Row</button>
+                    </br>
+                    <div>
+                        <label for="summeryskills">Summery Skills:</label>
+                        <textarea id="summeryskills" class="form-control" name="summeryskills" rows="5" required></textarea></br>
+
+                    </div>
+
+                    <label class="fs-5 fw-bold mb-6" for="salarydetails&designationdetails">Salary Details & Designation Details:</label></br>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="currentdesignation">Current Designation:</label>
+                        <input type="text" id="currentdesignation" class="form-control" name="currentdesignation"
+                            required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="expecteddesignation">Expected Designation:</label>
+                        <input type="text" id="expecteddesignation" class="form-control" name="expecteddesignation"
+                            required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="currentgrosssalary">Current Gross salary:</label>
+                        <input type="text" id="currentgrosssalary" class="form-control" name="currentgrosssalary"
+                            required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="Currentctc">Current CTC:</label>
+                        <input type="text" id="Currentctc" class="form-control" name="Currentctc" required>
+                
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="expectedgrosssalary">Expected Gross salary (30%):</label>
+                        <input type="text" id="expectedgrosssalary" class="form-control" name="expectedgrosssalary"
+                            required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="expectedctc">Expected CTC:</label>
+                        <input type="text" id="expectedctc" class="form-control" name="expectedctc" required>
+             
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="my-3 fs-6 fw-bold"  for="availability/confirmation">Availability/ Confirmation:</label></br>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="forinterview">For Interview:</label>
+                        <input type="text" id="forinterview" class="form-control" name="forinterview" required>
+              
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="noticeperiod">Notice Period:</label>
+                        <input type="text" id="noticeperiod" class="form-control" name="noticeperiod" required>
+               
+                        </div>
+                    </div>
+                    <label for="careerobjectives">Career Objectives:</label>
+                    <textarea id="careerobjectives" name="careerobjectives" class="form-control" rows="5"
+                        required></textarea></br>
+
+                    <label for="jobresponsibilities">Job Responsibilities:</label>
+                    <textarea id="jobresponsibilities" name="jobresponsibilities" class="form-control" rows="5"
+                        required></textarea></br>
+
+                    <label for="Projectsifany">Projects If Any:</label>
+                    <textarea id="Projectsifany" name="Projectsifany" rows="5" class="form-control"
+                        required></textarea></br>
+
+                    <label for="trainingparticipation">Training Participation:</label>
+                    <textarea id="trainingparticipation" name="trainingparticipation" class="form-control" rows="5"
+                        required></textarea></br>
+
+                    <label for="technicalskill">Technical Skill:</label>
+                    <textarea id="technicalskill" name="technicalskill" rows="5" class="form-control"
+                        required></textarea></br>
+
+                    <label for="computerskills">Computer Skills:</label>
+                    <textarea id="computerskills" name="computerskills" rows="5" class="form-control"
+                        required></textarea></br>
+
+                    <label for="co-curricullar/extracurricularactivites">Co- Curricullar / Extra Curricular
+                        Activites:</label>
+                    <textarea id="co-curricullar/extracurricularactivites"
+                        name="co-curricullar/extracurricularactivites" rows="5" class="form-control"
+                        required></textarea></br>
+
+                    <label for="areaofintrerest">Area of Intrerest:</label>
+                    <textarea id="areaofintrerest" class="form-control" name="areaofintrerest" rows="5"
+                        required></textarea></br>
+
+                    <label for="peronalstrength">Peronal Strength:</label>
+                    <textarea id="peronalstrength" class="form-control" name="peronalstrength" rows="5"
+                        required></textarea></br>
+
+                    <label for="hobbies">Hobbies:</label>
+                    <textarea id="hobbies" name="hobbies" class="form-control" rows="5" required></textarea></br>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <table id="language-data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Language 1</th>
+                                            <th>Language 2</th>
+                                            <th>Language 3</th>
+                                            <th>Language 4</th>
+                                            <th>Language 5</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="language1[]" value=""></td>
+                                            <td><input type="text" name="language2[]" value=""></td>
+                                            <td><input type="text" name="language3[]" value=""></td>
+                                            <td><input type="text" name="language4[]" value=""></td>
+                                            <td><input type="text" name="language5[]" value=""></td>
+                                            <td><button class="delete" onclick="deleteRow(this)">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="language1[]" value=""></td>
+                                            <td><input type="text" name="language2[]" value=""></td>
+                                            <td><input type="text" name="language3[]" value=""></td>
+                                            <td><input type="text" name="language4[]" value=""></td>
+                                            <td><input type="text" name="language5[]" value=""></td>
+                                            <td><button class="delete" onclick="deleteRow(this)">Delete</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                  
+                    <button onclick="addLanguageRow()">Add Row</button> <br>
+
+                    <input class="form-control" type="text" id="Name" name="Name" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="FatherName" name="fatherName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="FatherOccupation" name="fatheroccupation" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="MotherName" name="MotherName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="MotherOccupation" name="MotherOccupation" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="Spouse/HusbandName" name="Spouse/HusbandName" placeholder="John" required>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required> <br>
+
+
+                    <button type="button" onclick="preview()">Preview Resume</button>
+                    <button type="button" onclick="redirectToPreview()">Generate PDF</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
